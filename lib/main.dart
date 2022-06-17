@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project_mobile/view/listview_1.dart';
 import 'package:flutter/material.dart';
+import 'package:project_mobile/view/splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,6 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        home: ListView1());
+        home: Splash());
   }
 }

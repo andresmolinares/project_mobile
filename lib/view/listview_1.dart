@@ -30,29 +30,25 @@ class _ListView1 extends State<ListView1> {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Lista de usuarios'),
-        ),
         body: ListView.builder(
-          itemCount: registros.length,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: Image.network(registros[index].image!).image,
-                ),
-                title: Text(
-                    '${registros[index].nombre!} ${registros[index].apellido!}'),
-                onTap: () => showDialog<Image>(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                          title: Text(
-                              '${registros[index].nombre!} ${registros[index].apellido!}'),
-                          content: Image(
-                              image:
-                                  Image.network(registros[index].image!).image),
-                        )));
-          },
-        ));
+      itemCount: registros.length,
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+            leading: CircleAvatar(
+              backgroundImage: Image.network(registros[index].image!).image,
+            ),
+            title: Text(
+                '${registros[index].nombre!} ${registros[index].apellido!}'),
+            onTap: () => showDialog<Image>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                      title: Text(
+                          '${registros[index].nombre!} ${registros[index].apellido!}'),
+                      content: Image(
+                          image: Image.network(registros[index].image!).image),
+                    )));
+      },
+    ));
   }
 }
