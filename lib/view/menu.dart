@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_mobile/view/listview_1.dart';
+import 'package:project_mobile/view/profile.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -19,10 +20,7 @@ class _MenuS extends State<Menu> {
       style: optionStyle,
     ),
     ListView1(),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    Profile(),
   ];
 
   void _onItemTapped(int index) {
