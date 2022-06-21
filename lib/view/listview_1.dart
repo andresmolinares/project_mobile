@@ -11,6 +11,26 @@ class ListView1 extends StatefulWidget {
   State<ListView1> createState() => _ListView1();
 }
 
+class CustomCard extends StatelessWidget {
+  const CustomCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Card(
+          color: Color.fromARGB(193, 224, 227, 230),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12)),
+          ),
+          child: SizedBox(
+            width: 370,
+            height: 120,
+            child: Center(child: Text('Clean Card')),
+          )),
+    );
+  }
+}
+
 class _ListView1 extends State<ListView1> {
   List<Registros> registros = [];
   FirebaseConnection firebaseConnection = FirebaseConnection();
@@ -34,20 +54,7 @@ class _ListView1 extends State<ListView1> {
       itemCount: registros.length,
       physics: const BouncingScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-            leading: CircleAvatar(
-              backgroundImage: Image.network(registros[index].image!).image,
-            ),
-            title: Text(
-                '${registros[index].nombre!} ${registros[index].apellido!}'),
-            onTap: () => showDialog<Image>(
-                context: context,
-                builder: (BuildContext context) => AlertDialog(
-                      title: Text(
-                          '${registros[index].nombre!} ${registros[index].apellido!}'),
-                      content: Image(
-                          image: Image.network(registros[index].image!).image),
-                    )));
+        return const CustomCard();
       },
     ));
   }
